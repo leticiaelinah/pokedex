@@ -1,0 +1,148 @@
+/* fade */
+
+.fade-enter-from, .fade-leave-to {
+    opacity: 0;
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: all 1s;
+}
+
+.fade-enter-to, .fade-leave-from {
+    opacity: 1;
+}
+
+/* slide */
+
+.slide-enter-from {
+    opacity: 0;
+    transform: translateX(-150px);
+}
+
+.slide-enter-active, .slide-leave-active {
+    transition: all 1s;
+}
+
+.slide-enter-to, .slide-leave-from {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide-leave-to {
+    opacity: 0;
+    transform: translateX(150px);
+}
+
+/* zoom */
+
+.zoom-enter-from, .zoom-leave-to {
+    transform: scale(0);
+}
+
+.zoom-enter-active, .zoom-leave-active {
+    transition: transform 1s;
+}
+
+.zoom-enter-to, .zoom-leave-from {
+    transform: scale(1);
+}
+
+/* flip */
+
+.flip-enter-active {
+    animation: flip 1s;
+}
+
+.flip-leave-active {
+    animation: flip 1s reverse;
+}
+
+/* transition-group lista que terá um efeito slide */
+
+.lista-enter-from {
+    opacity: 0;
+    transform: translateX(-150px);
+}
+
+.lista-enter-active {
+    transition: all 1s;
+}
+
+.lista-leave-active {
+    transition: all 1s;
+    position: absolute;
+}
+
+.lista-enter-to, .lista-leave-from {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.lista-leave-to {
+    opacity: 0;
+    transform: translateX(150px);
+}
+
+.lista-move {
+    transition: all 1s;
+}
+
+/* transition-group filtro de ordenacao */
+.ordenacao-move {
+    transition: all 2s;
+}
+
+@keyframes flip {
+    from {
+        transform: rotateY(-90deg);
+    }
+    to {
+        transform: rotateY(0);
+    }
+}
+
+@keyframes flipCustomizado {
+    0% {
+        transform: rotateY(-90deg);
+    }
+    25% {
+        transform: rotateY(-65deg);
+    }
+    50% {
+        transform: rotateY(-25deg);
+    }
+    100% {
+        transform: rotateY(0);
+    }
+}
+
+/* combinando transition e animation */
+/* pulo */
+
+.pulo-enter-from, .pulo-leave-to {
+    opacity: 0;
+}
+
+.pulo-enter-active {
+    animation: pulo 2s;
+    transition: 1.5s;
+}
+
+.pulo-enter-to, .pulo-leave-from {
+    opacity: 1;
+}
+
+.pulo-leave-active {
+    transition: opacity 1s;
+    animation: pulo 2s;
+}
+
+@keyframes pulo {
+    0%   { transform: scale(1,1)          translateY(0); }
+    10%  { transform: scale(1.1,9)        translateY(0); }
+    30%  { transform: scale(.9,1.1)       translateY(-30px); }
+    50%  { transform: scale(1.05,.95)     translateY(0); }
+    57%  { transform: scale(1,1)          translateY(-8px); }
+    64%  { transform: scale(1,1)          translateY(0); }
+    100% { transform: scale(1,1)          translateY(0); }
+}
